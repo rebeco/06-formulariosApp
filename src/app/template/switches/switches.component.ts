@@ -3,14 +3,17 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-switches',
   templateUrl: './switches.component.html',
-  styles: [
-  ]
+  styles: [],
 })
 export class SwitchesComponent implements OnInit {
+  persona = {
+    genero: 'F',
+    notificaciones: false,
+  };
 
-  constructor() { }
+  terminosYCondiciones: boolean = false;
 
-  ngOnInit(): void {
-  }
+  constructor() {}
 
+  ngOnInit(): void {}
 }
