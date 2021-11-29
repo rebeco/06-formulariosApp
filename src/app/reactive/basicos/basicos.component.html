@@ -1,1 +1,79 @@
-<p>basicos works!</p>
+<h2>Reactive: Básicos</h2>
+
+<div class="row">
+  <div class="col">
+    <form autocomplete="off" [formGroup]="miFormulario" (ngSubmit)="guardar()">
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Producto</label>
+        <div class="col-sm-9">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Nombre del producto"
+            formControlName="nombre"
+          />
+          <span class="form-text text-danger" *ngIf="campoNoEsValido('nombre')"
+            >Debe de ser de tres letras</span
+          >
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Precio</label>
+        <div class="col-sm-9">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Precio del producto"
+            formControlName="precio"
+          />
+          <span class="form-text text-danger" *ngIf="campoNoEsValido('precio')"
+            >Debe de mayor que 0</span
+          >
+        </div>
+      </div>
+
+      <div class="mb-3 row">
+        <label class="col-sm-3 col-form-label">Existencias</label>
+        <div class="col-sm-9">
+          <input
+            type="number"
+            class="form-control"
+            placeholder="Existencias del producto"
+            formControlName="existencias"
+          />
+          <span
+            class="form-text text-danger"
+            *ngIf="campoNoEsValido('existencias')"
+            >Debe de mayor que 0</span
+          >
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col">
+          <button type="submit" class="btn btn-primary float-end">
+            Guardar
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col">
+    <span>Valid</span>
+    <pre>{{ miFormulario.valid | json }}</pre>
+    <span>Pristine</span>
+    <pre>{{ miFormulario.pristine | json }}</pre>
+    <span>Touched</span>
+    <pre>{{ miFormulario.touched | json }}</pre>
+    <span>Valor</span>
+    <pre>{{ miFormulario.value | json }}</pre>
+    <span>CustomDirective</span>
+    <pre>{{ miFormulario.controls.existencias?.errors | json }}</pre>
+    <span>Errores Precio</span>
+    <pre>{{ miFormulario.controls.precio?.errors | json }}</pre>
+  </div>
+</div>
